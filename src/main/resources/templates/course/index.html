@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Home Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    .message {
+        color: #d9534f;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    a {
+        color: #292b2c;
+    }
+
+    th {
+        background: #292b2c;
+        color: white;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 10px;
+    }
+
+    table {
+        width: 1424px;
+    }
+
+
+    body {
+        font-family: 'Jost', sans-serif;
+        background-color: #f7f7f7;
+    }
+
+    header {
+        text-align: center;
+        font-size: 30px;
+
+    }
+    .button {
+        font-size: 15px;
+        color: #f7f7f7;
+        text-decoration: none;
+        display: block;
+        background: #292b2c;
+        padding: 5px;
+        text-align: center;
+        margin:auto;
+        display:block;
+    }
+
+    div {
+        color: #f7f7f7;
+    }
+
+    button {
+        width: 350px;
+        font-size: 15px;
+        margin:auto;
+        display:block;
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+        text-align: center;
+        color: #f7f7f7;
+        background: #292b2c;
+    }
+    </style>
+
+</head>
+<body>
+<header>Welcome to Course Home Page</header>
+
+<table class="table">
+
+    <tbody>
+
+    <tr>
+<!--        <td><label>Get Course by Course Number </label></td>-->
+        <td><label>Update Course with Course Number </label></td>
+        <td><label>Get Course with Course Number</label></td>
+        <td><label>Get Course(s) with Course Name</label></td>
+        <td><label>Get Course(s) with Course Type</label></td>
+        <td><label>Delete Course with Course Number</label></td>
+    </tr>
+
+    <tr>
+
+<!--        <form action="/course/number" method="GET">-->
+<!--            <td><input type="text" name="number" required>-->
+<!--                <input class="button" type="submit" value="Search" ></td>-->
+<!--        </form>-->
+
+        <form action="/course/update" method="GET">
+            <td><input type="text" name="number" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/course/searchNumber" method="GET">
+            <td><input type="text" name="courseNumber" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/course/searchName" method="GET">
+            <td><input type="text" name="name" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/course/searchType" method="GET">
+            <td><input type="text" name="type" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/course/delete" method="GET">
+            <td><input type="text" name="number" required>
+                <input class="button" type="submit" value="Remove"></td>
+        </form>
+
+    </tr>
+    </tbody>
+</table>
+<br>
+<p class="message" th:text="${message}"></p>
+<br>
+<form action="/course/new" method="get">
+    <button>Add a New Course</button>
+</form>
+<br>
+
+<form action="/course/list" method="get">
+    <button>See All Courses</button>
+</form>
+
+<br>
+
+<form action="/course/freeElective" method="get">
+    <button>See Free Elective Subjects</button>
+</form>
+<br>
+
+<form action="/course/major" method="get">
+    <button>See Major Subjects</button>
+</form>
+<br>
+
+<form action="/course/genEd" method="get">
+    <button>See General Education Subjects</button>
+</form>
+<br>
+
+<form action="/welcome/" method="get">
+    <button>Go Back to Welcome Page</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/openjdk:11.0.1-jdk
+    steps:
+      - checkout
+      - run: mvn dependency:go-offline
+      - run: mvn clean package
+      - run: mvn clean compile jib:build -Djib.to.auth.username=$DOCKER_USER -Djib.to.auth.password=$DOCKER_PASS -Dimage=nargayeva/crudapp:$CIRCLE_BUILD_NUM

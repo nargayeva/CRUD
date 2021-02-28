@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Course Home Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    .message {
+        color: #d9534f;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    table {
+        width: 1424px;
+    }
+
+    a {
+        color: #292b2c;
+    }
+
+    th {
+        background: #292b2c;
+        color: white;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 10px;
+    }
+
+
+    body {
+        font-family: 'Jost', sans-serif;
+        background-color: #f7f7f7;
+    }
+
+    header {
+        text-align: center;
+        font-size: 30px;
+
+    }
+    .button {
+        font-size: 15px;
+        color: #f7f7f7;
+        text-decoration: none;
+        display: block;
+        background: #292b2c;
+        padding: 5px;
+        text-align: center;
+        margin:auto;
+        display:block;
+    }
+
+    div {
+        color: #f7f7f7;
+    }
+
+    button {
+        width: 350px;
+        font-size: 15px;
+        margin:auto;
+        display:block;
+        text-decoration: none;
+        display: block;
+        padding: 5px;
+        text-align: center;
+        color: #f7f7f7;
+        background: #292b2c;
+    }
+
+    </style>
+
+</head>
+<body>
+<header>Welcome to Student Home Page</header>
+
+<table class="table">
+
+    <tbody>
+
+    <tr>
+        <td><label>Get Student by ID </label></td>
+        <td><label>Get Student(s) by First Name</label></td>
+        <td><label>Get Student(s) by Last Name</label></td>
+        <td><label>Get Student(s) by Email</label></td>
+        <td><label>Update Student by ID </label></td>
+        <td><label>Delete Student with ID</label></td>
+    </tr>
+
+    <tr>
+        <form action="/student/id" method="GET">
+            <td><input type="text" name="id" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/student/searchFirst" method="GET">
+            <td><input type="text" name="first" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/student/searchLast" method="GET">
+            <td><input type="text" name="last" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/student/searchEmail" method="GET">
+            <td><input type="text" name="email" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/student/update" method="GET">
+            <td><input type="text" name="id" required>
+                <input class="button" type="submit" value="Search"></td>
+        </form>
+
+        <form action="/student/delete" method="GET">
+            <td><input type="text" name="id" required>
+                <input class="button" type="submit" value="Remove"></td>
+        </form>
+
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<p class="message" th :text="${message}"></p>
+<br>
+
+<form action="/student/new" method="GET">
+    <button> Add a Student </button>
+</form>
+
+<br>
+<form action="/student/list" method="GET">
+    <button> See All Students </button>
+</form>
+<br>
+
+<form action="/student/master" method="GET">
+    <button>Get Master Student(s) </button>
+</form>
+<br>
+
+<form action="/student/bachelor" method="GET">
+    <button>Get Bachelor Student(s)</button>
+</form>
+<br>
+
+<form action="/student/excellent" method="GET" style="display:inline">
+    <button>Get Student(s) with Excellent Performance </button>
+</form>
+
+<br>
+<form action="/welcome/" method="get">
+    <button>Go Back to Welcome Page</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    a {
+    color: #292b2c;
+    }
+
+    body {
+    font-family: 'Jost', sans-serif;
+    background-color: #f7f7f7;
+    }
+
+    .welcome {
+    margin: 300px;
+    }
+
+    header {
+    color: #292b2c;
+    text-align: center;
+    font-size: 30px;
+    }
+
+    button {
+    font-size: 15px;
+    width: 200px;
+    margin:auto;
+    display:block;
+    text-decoration: none;
+    display: block;
+    padding: 5px;
+    text-align: center;
+    color: #f7f7f7;
+    background: #292b2c;
+}
+
+    </style>
+</head>
+<body>
+
+<div class="welcome">
+<header>WELCOME!</header>
+<form action="/student/home" method="get">
+    <button>Go to Student Home Page</button>
+</form>
+<br>
+<form action="/course/home" method="get">
+    <button>Go to Course Home Page</button>
+</form>
+</div>
+</body>
+</html>

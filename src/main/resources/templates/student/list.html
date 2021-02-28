@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    a {
+        color: #292b2c;
+    }
+
+    th {
+        background: #292b2c;
+        color: white;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 10px;
+    }
+
+    body {
+        font-family: 'Jost', sans-serif;
+    }
+
+    header {
+        text-align: center;
+        font-size: 30px;
+
+    }
+    .button {
+        font-size: 15px;
+        text-decoration: none;
+        display: block;
+        color: #f7f7f7;
+        background: #292b2c;
+        padding: 5px;
+        text-align: center;
+    }
+    button {
+        width: 350px;
+        font-size: 15px;
+        margin:auto;
+        display:block;
+        text-decoration: none;
+        display: block;
+        color: #f7f7f7;
+        background: #292b2c;
+        padding: 5px;
+        text-align: center;
+    }
+    a:hover {
+        color: white;
+    }
+    </style>
+
+</head>
+<body>
+
+<header>Student List</header>
+
+<table style="width:50" class="table">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Age</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Degree</th>
+        <th scope="col">CGPA</th>
+        <th scope="col">Major</th>
+        <th scope="col">Performance</th>
+        <th scope="col">Courses</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student: ${students}">
+        <td th:text = "${student.studentID}"></td>
+        <td th:text = "${student.age}"></td>
+        <td th:text = "${student.firstName}"></td>
+        <td th:text = "${student.lastName}"></td>
+        <td th:text = "${student.email}"></td>
+        <td th:text = "${student.degree}"></td>
+        <td th:text = "${student.cgpa}"></td>
+        <td th:text = "${student.major}"></td>
+        <td th:text = "${student.performance}"></td>
+        <td>
+            <a class="button" th:href="@{/student/courses(id=${student.studentID})}">Edit Courses</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<form action="/student/home" method="get">
+    <button>Go Back to Student Home Page</button>
+</form>
+<br>
+<p class="message" th:text="${message}"></p>
+<br>
+
+</body>
+</html>

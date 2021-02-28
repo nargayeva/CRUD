@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollments</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+
+    h2 {
+        display: inline;
+    }
+
+    a {
+        color: #292b2c;
+    }
+
+    th {
+        background: #292b2c;
+        color: white;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 10px;
+    }
+
+    body {
+        font-family: 'Jost', sans-serif;
+        text-align: center;
+    }
+
+    header {
+        text-align: center;
+        font-size: 50px;
+
+    }
+    button {
+        width: 150px;
+        margin:auto;
+        display:block;
+        color: #f7f7f7;
+        background: #292b2c;
+        font-size: 15px;
+        display: block;
+        padding: 5px;
+        text-align: center;
+        border-radius: 1px;
+    }
+
+    .container-fluid {
+        margin:auto;
+        display:block;
+    }
+
+    .add {
+        display: inline-block;
+    }
+
+    </style>
+
+
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-1 col-sm-2 col-lg-4 col-md-3">
+            <h2></h2>
+        </div>
+        <div class="col-xs-10 col-sm-8 col-lg-4 col-md-8">
+            <h2 >Courses of </h2>
+            <h2 th:text = "${fullname}"></h2>
+            <div class="col-xs-1 col-sm-2 col-lg-4 col-md-3">
+                <h2></h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table tyle="width:50" class="table">
+    <thead>
+    <tr>
+        <th>Course Number</th>
+        <th>Course Name</th>
+        <th>Course Credit</th>
+        <th>Course Passing Grade</th>
+        <th>Course Type</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course: ${courses}">
+        <td th:text = "${course.courseNumber}"></td>
+        <td th:text = "${course.courseName}"></td>
+        <td th:text = "${course.courseCredit}"></td>
+        <td th:text = "${course.passingGrade}"></td>
+        <td th:text = "${course.courseType}"></td>
+        <td>
+            <form action="/student/dropCourseOnStudent" method="post" style="display:inline">
+                <input type="hidden" name="courseNumber" th:value="${course.courseNumber}">
+                <input type="hidden" name="studentID" th:value="${studentID}">
+                <button type="submit">Drop Course</button>
+            </form>
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<div class="add">
+    <form action="/student/addCourseOnStudent" method="post" style="display:inline">
+        <label>Course Number:</label>
+        <input class="courseNumber" type="text" name="courseNumber" required>
+        <input type="hidden" name="studentID" th:value="${studentID}">
+        <button type="submit">Add Course</button>
+    </form>
+    <br>
+</div>
+<form action="/course/list" method="get">
+    <button>See All Courses</button>
+</form>
+<br>
+<form action="/student/list" method="get">
+    <button>Go Back</button>
+</form>
+
+</body>
+</html>

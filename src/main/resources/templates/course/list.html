@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Course List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    a {
+        color: #292b2c;
+    }
+
+    th {
+        background: #292b2c;
+        color: white;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 10px;
+    }
+
+    body {
+        font-family: 'Jost', sans-serif;
+    }
+
+    header {
+        text-align: center;
+        font-size: 30px;
+
+    }
+
+    button {
+        width: 350px;
+        font-size: 15px;
+        margin:auto;
+        display:block;
+        text-decoration: none;
+        display: block;
+        background: #efefef;
+        padding: 5px;
+        text-align: center;
+        color: #f7f7f7;
+        background: #292b2c;
+    }
+    </style>
+
+</head>
+<body>
+<header>Course List</header>
+
+<table tyle="width:50" class="table">
+    <thead>
+    <tr>
+        <th scope="col">Course Number</th>
+        <th scope="col">Course Name</th>
+        <th scope="col">Course Credit</th>
+        <th scope="col">Course Passing Grade</th>
+        <th scope="col">Course Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course: ${courses}">
+        <td th:text = "${course.courseNumber}"></td>
+        <td th:text = "${course.courseName}"></td>
+        <td th:text = "${course.courseCredit}"></td>
+        <td th:text = "${course.passingGrade}"></td>
+        <td th:text = "${course.courseType}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<form action="/course/home" method="get">
+    <button>Go Back to Course Home Page</button>
+</form>
+<br>
+<form action="/student/home" method="get">
+    <button>Go Back to Student Home Page</button>
+</form>
+
+</body>
+</html>

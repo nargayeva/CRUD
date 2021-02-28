@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Student data</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+
+    a {
+        color: #292b2c;
+    }
+
+    th {
+        background: #292b2c;
+        color: white;
+    }
+
+    td, th {
+        text-align: center;
+        padding: 10px;
+    }
+
+
+    body {
+        background-color: #f7f7f7;
+        font-family: 'Jost', sans-serif;
+    }
+
+    header {
+        text-align: center;
+        font-size: 30px;
+
+    }
+    .button {
+        width: 200px;
+        font-size: 15px;
+        text-decoration: none;
+        display: block;
+        color: #f7f7f7;
+        background: #292b2c;
+        padding: 5px;
+        text-align: center;
+        margin:auto;
+        display:block;
+    }
+    button {
+        width: 350px;
+        font-size: 15px;
+        margin:auto;
+        display:block;
+        text-decoration: none;
+        display: block;
+        color: #f7f7f7;
+        background: #292b2c;
+        padding: 5px;
+        text-align: center;
+    }
+    </style>
+</head>
+
+<body>
+<header>Add or Modify Student Data</header>
+
+<table tyle="width:50" class="table">
+
+    <tbody>
+
+    <tr>
+        <td><label>ID: </label></td>
+        <td><label>Age:</label></td>
+        <td><label>First Name:</label></td>
+        <td><label>Last Name:</label></td>
+        <td><label>Email:</label></td>
+    </tr>
+    <form action="#" th:action="@{/student/save}" th:object="${students}" method="post">
+        <tr>
+            <td><input type="text" th:field="*{studentID}" required/></td>
+            <td> <input type="text" th:field="*{age}" required/></td>
+            <td><input type="text" th:field="*{firstName}" required/></td>
+            <td><input type="text" th:field="*{lastName}" required/></td>
+            <td><input type="text" th:field="*{email}" required/></td>
+        </tr>
+        <tr>
+            <td><label>Degree:</label></td>
+            <td><label>CGPA:</label></td>
+            <td><label>Major:</label></td>
+            <td><label>Performance:</label></td>
+            <td><label></label></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" th:field="*{degree}" required/></td>
+            <td><input type="text" th:field="*{cgpa}" required/></td>
+            <td><input type="text" th:field="*{major}" required/></td>
+            <td><input type="text" th:field="*{performance}" required/></td>
+            <td><input class="button" type="submit" value="Save" required/></td>
+
+        </tr>
+    </form>
+    </tbody>
+</table>
+
+<form action="/student/home" method="get">
+    <button>Cancel</button>
+</form>
+
+</body>
+</html>
+
