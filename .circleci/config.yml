@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/openjdk:11.0.1-jdk
+      - image: circleci/openjdk:13.0.1-jdk
     steps:
       - checkout
       - run: mvn dependency:go-offline
